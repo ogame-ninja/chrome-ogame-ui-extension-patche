@@ -13,6 +13,12 @@ func main() {
 	files := []ep.FileAndProcessors{
 		ep.NewFile("manifest.json", processManifest),
 		ep.NewFile("src/utils/load-universe-api.js", srcUtilsLoadUniverseApiJs),
+		ep.NewFile("_locales/de/messages.json", messagesJson),
+		ep.NewFile("_locales/en/messages.json", messagesJson),
+		ep.NewFile("_locales/es/messages.json", messagesJson),
+		ep.NewFile("_locales/fr/messages.json", messagesJson),
+		ep.NewFile("_locales/pl/messages.json", messagesJson),
+		ep.NewFile("_locales/tr/messages.json", messagesJson),
 	}
 
 	ep.MustNew(ep.Params{
@@ -30,6 +36,10 @@ func processManifest(by []byte) []byte {
       "http://127.0.0.1:*/bots/*/browser/html*",
       "https://*.ogame.ninja/bots/*/browser/html*"`, 1)
 	return by
+}
+
+func messagesJson(by []byte) []byte {
+	return replN(by, `"message": "OGame UI++",`, `"message": "OGame UI++ Ninja",`, 1)
 }
 
 func srcUtilsLoadUniverseApiJs(by []byte) []byte {
