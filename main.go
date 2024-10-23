@@ -59,5 +59,6 @@ func srcUtilsLoadUniverseApiJs(by []byte) []byte {
 	by = replN(by, `/api/highscore.xml?category=1&type=7`, `/api/'+server+'/'+lang+'/highscore.xml?category=1&type=7`, 1)
 	by = replN(by, `/api/alliances.xml`, `/api/'+server+'/'+lang+'/alliances.xml`, 1)
 	by = replN(by, `/api/serverData.xml`, `/api/'+server+'/'+lang+'/serverData.xml`, 1)
+	by = replN(by, `/api/localization.xml`, `/api/'+server+'/'+lang+'/localization.xml`, 1)
 	return by
 }
